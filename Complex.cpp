@@ -1,7 +1,14 @@
 #include "Complex.h"
 #include <iostream>
 
-void Complex::set_num(int r, int i) {
+Complex Complex::operator+(Complex const& num) {
+	Complex tmp;
+	tmp.real = real + num.real;
+	tmp.image = image + num.image;
+	return tmp;
+}
+
+void Complex::set_num(double r, double i) {
 	real = r;
 	image = i;
 }
@@ -34,10 +41,4 @@ double Complex::abs() {
 	return sqrt(pow(real, 2) + pow(image, 2));
 }
 
-/*Complex operator+(Complex const& num1,
-	Complex const& num2) {
-	Complex tmp;
-	tmp.real = num1.real + num2.real;
-	tmp.image = num1.image + num2.image;
-	return tmp;
-}*/
+

@@ -10,8 +10,9 @@ int main() {
 	Complex num2(4, 2);
 	Complex num3(10.4, 2.8);
 
-	num1.add(num2);
-	num1.add(num3);
+	num1 = num1 + num2;
+	num1.get_num();
+	num1 = num1 + num3;
 	num1.get_num();
 
 	ComplexVector vector1;
@@ -19,8 +20,12 @@ int main() {
 	vector1.rand_init();
 	vector2.rand_init();
 
+	std::cout << "first vector: "; vector1.print_vector();
+	std::cout << "second vector: "; vector2.print_vector();
+
 	vector1.add(vector2);
-	vector1.print_vector();
+	std::cout << "vector sum: "; vector1.print_vector();
+
 	_getch();
 	return 0;
 }
