@@ -1,6 +1,14 @@
 #include "ComplexVector.h"
 #include <ctime>
 
+ int max(int frst, int scd) {
+	 return frst > scd ? frst : scd;
+}
+
+ int min(int frst, int scd) {
+	 return frst < scd ? frst : scd;
+ }
+
 void ComplexVector::add(ComplexVector other) {
 	Complex* sum_arr = new Complex[size+other.size];
 	for (int i = 0; i < size; ++i) {
@@ -31,4 +39,27 @@ void ComplexVector::print_vector() {
 		arr[i].get_num();
 		std::cout << " ";
 	}
+}
+
+void ComplexVector::sum(ComplexVector other) {
+	size_t max_size = max(size, other.size);
+	Complex* sum_arr = new Complex[max_size];
+	if (max_size == size) {
+		for (int i = 0; i < size; ++i) {
+			sum_arr[i] = arr[i];
+		}
+		for (int i = 0; i < other.size; ++i) {
+			sum_arr[i] = sum_arr[i] + other.arr[i];
+		}
+	}else {
+		for (int i = 0; i < other.size; ++i) {
+			sum_arr[i] = other.arr[i];
+		}
+		for (int i = 0; i < size; ++i) {
+			sum_arr[i] = sum_arr[i] + other.arr[i];
+		}
+	}
+	delete[] arr;
+	arr = sum_arr;
+	size = max_size;
 }

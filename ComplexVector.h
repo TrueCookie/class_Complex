@@ -16,4 +16,6 @@ public:
 	void add(ComplexVector other);
 	void rand_init();
 	void print_vector();
+
+	void sum(ComplexVector other);
 };

@@ -23,8 +23,11 @@ int main() {
 	std::cout << "first vector: "; vector1.print_vector();
 	std::cout << "second vector: "; vector2.print_vector();
 
-	vector1.add(vector2);
+	vector1.sum(vector2);
 	std::cout << "vector sum: "; vector1.print_vector();
+
+	vector1.add(vector2);
+	std::cout << "vector add: "; vector1.print_vector();
 
 	_getch();
 	return 0;
